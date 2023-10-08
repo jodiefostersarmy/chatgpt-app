@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import { UserButton, auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { LogIn } from "lucide-react";
+import FileUpload from "../components/FileUpload";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -11,7 +12,7 @@ export default async function Home() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center">
-            <h1 className='mr-3 text-5xl font-semibold'>Chat with a PDF</h1>
+            <h1 className='mr-3 text-5xl font-semibold'>Chat with a Anne's AI</h1>
             <UserButton afterSignOutUrl="/" />
           </div>
 
@@ -20,12 +21,12 @@ export default async function Home() {
           </div>
 
           <p className="max-w-xl mt-1 text-lg text-stone-400">
-            Join the Army
+            Open your mind
           </p>
 
           <div className="w-full mt-4">
             {isAuth ? (
-              <h1>fileupload</h1>
+              <FileUpload />
             ) : (
               <Link href="/sign-in">
                 <Button>
